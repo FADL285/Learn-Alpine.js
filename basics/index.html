@@ -15,6 +15,22 @@
         font-family: sans-serif;
         text-align: center;
       }
+
+      
+      button {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 0.25rem;
+        background-color: #3490dc;
+        color: #fff;
+        cursor: pointer;
+        margin: 0.5rem;
+      }
+
+      button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
     </style>
 
     <script
@@ -38,5 +54,25 @@
       x-data
       x-text="await (await fetch('https://jsonplaceholder.typicode.com/todos/1')).text()"
     ></div>
+
+    <!-- x-data with methods -->
+    <div
+      x-data="{
+      message: 'Click Me to change the text',
+      changeText() {
+        this.message = 'The content was changed ✔️';}
+    }"
+    >
+      <h2><strong>x-data</strong> with methods</h2>
+      <button
+        x-text="message"
+        @click="
+          changeText();
+          $event.target.disabled = true;
+        "
+      >
+        Click Me
+      </button>
+    </div>
   </body>
 </html>
