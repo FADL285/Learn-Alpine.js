@@ -13,5 +13,11 @@
   <body>
     <h1>Alpine JS</h1>
     <h1 x-data="{ message: 'I ❤️ Alpine' }" x-text="message"></h1>
+
+    <div class="counter" x-data="{counter: 0}">
+      <button @click="counter++">+</button>
+      <span x-text="counter"></span>
+      <button @click="counter--">-</button>
+    </div>
   </body>
 </html>
