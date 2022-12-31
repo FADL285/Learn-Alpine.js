@@ -42,8 +42,9 @@
         border-bottom: 1px solid #ccc;
       }
     </style>
+
     <script
-      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+      src="https://unpkg.com/alpinejs@3.10.5/dist/cdn.min.js"
       defer
     ></script>
   </head>
@@ -128,6 +129,24 @@
           <li x-text="item"></li>
         </template>
       </ul>
+    </div>
+
+    <div class="ref" x-data="{}">
+      <h3>Ref {x-ref} to access other element</h3>
+      <input type="text" x-ref="input" />
+      <button x-on:click="$refs.input.focus()">Focus</button>
+    </div>
+
+    <div x-init="console.log(1)">
+      <h3>$el element</h3>
+      <button x-on:click="$el.style.backgroundColor = '#ef1414'">
+        Change me to Red
+      </button>
+    </div>
+
+    <div x-data>
+      Copyright &copy;
+      <span x-text="new Date().getFullYear()"></span>
     </div>
   </body>
 </html>
