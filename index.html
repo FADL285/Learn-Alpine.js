@@ -10,6 +10,11 @@
         display: none;
       }
 
+      body {
+        font-family: sans-serif;
+        text-align: center;
+      }
+
       button {
         padding: 0.5rem 1rem;
         border: none;
@@ -23,6 +28,18 @@
       button:disabled {
         background-color: #ccc;
         cursor: not-allowed;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        max-width: 20rem;
+        margin: auto;
+      }
+
+      li {
+        padding: 0.5rem;
+        border-bottom: 1px solid #ccc;
       }
     </style>
     <script
@@ -49,7 +66,13 @@
     <div class="model" x-data="{show: false}">
       <h3>Model</h3>
       <button @click="show = !show">Toggle</button>
-      <div x-show="show" x-transition x-cloak x-effect="console.log(show)">
+      <div
+        x-show="show"
+        x-transition
+        x-cloak
+        x-effect="console.log(show)"
+        @click.outside="show=false"
+      >
         <h4>Model is toggled</h4>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit,
@@ -61,8 +84,50 @@
     </div>
 
     <div x-data="{ label: 'Hello' }" x-effect="console.log(label)">
-      <h3>x-effect -> Watcher for value</h3>
+      <h3>x-effect (👉ﾟヮﾟ)👉 Watcher for value</h3>
       <button @click="label += ' World!'">Change Message</button>
+    </div>
+
+    <!-- x-model -->
+    <div
+      x-data="{
+        search: '',
+        items: [
+        'BMW',
+        'Mercedes',
+        'Audi',
+        'Toyota',
+        'Honda',
+        'Nissan',
+        'Mazda',
+        'Hyundai',
+        'Kia',
+        'Suzuki',
+        'Mitsubishi',
+        'Subaru',
+        'Lexus',
+        'Infiniti',
+        'Volvo',
+        'Saab',
+        'Volkswagen',
+        'Porsche',
+        'Ferrari',
+        'Lamborghini',
+        'Aston Martin',
+        'Bentley'
+        ],
+        get filteredData() {
+          return this.items.filter((item) => item.toLowerCase().includes(this.search.toLowerCase()))
+        }
+      }"
+    >
+      <h3>x-model</h3>
+      <input type="text" x-model="search" placeholder="Search..." />
+      <ul>
+        <template x-for="item in filteredData" :key="item">
+          <li x-text="item"></li>
+        </template>
+      </ul>
     </div>
   </body>
 </html>
