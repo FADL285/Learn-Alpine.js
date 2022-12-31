@@ -123,6 +123,9 @@
       }"
     >
       <h3>x-model</h3>
+      <button @click="logFilteredCars($data.filteredData)">
+        Log filtered Data
+      </button>
       <input type="text" x-model="search" placeholder="Search..." />
       <ul>
         <template x-for="item in filteredData" :key="item">
@@ -148,5 +151,11 @@
       Copyright &copy;
       <span x-text="new Date().getFullYear()"></span>
     </div>
+
+    <script>
+      function logFilteredCars(cars) {
+        console.log(cars)
+      }
+    </script>
   </body>
 </html>
