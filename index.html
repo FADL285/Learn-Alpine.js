@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alpine JS</title>
+    <style>
+      [x-cloak] {
+        display: none;
+      }
+    </style>
     <script
       src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
       defer
@@ -15,9 +20,24 @@
     <h1 x-data="{ message: 'I ❤️ Alpine' }" x-text="message"></h1>
 
     <div class="counter" x-data="{counter: 0}">
+      <h3>Counter</h3>
       <button @click="counter++">+</button>
       <span x-text="counter"></span>
       <button @click="counter--">-</button>
+    </div>
+
+    <div class="model" x-data="{show: false}">
+      <h3>Model</h3>
+      <button @click="show = !show">Toggle</button>
+      <div x-show="show" x-cloak>
+        <h4>Model is toggled</h4>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit,
+          velit. Dolore, corrupti magnam! Voluptatibus dolore officiis totam
+          sit, eveniet debitis quibusdam ab voluptatem neque reprehenderit
+          laudantium maiores doloremque distinctio ipsam!
+        </p>
+      </div>
     </div>
   </body>
 </html>
