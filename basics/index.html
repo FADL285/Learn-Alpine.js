@@ -16,7 +16,6 @@
         text-align: center;
       }
 
-      
       button {
         padding: 0.5rem 1rem;
         border: none;
@@ -29,6 +28,7 @@
 
       button:disabled {
         background-color: #ccc;
+        color: rgb(16, 16, 16);
         cursor: not-allowed;
       }
     </style>
@@ -74,5 +74,15 @@
         Click Me
       </button>
     </div>
+
+    <!-- Re-usable Data -->
+    <div x-data="dropdown">
+      <button @click="toggle" x-text="open ? 'Close' : 'Open'"></button>
+      <div x-show="open" x-cloak>
+        <p>Some content</p>
+      </div>
+    </div>
+
+    <script src="./app.js"></script>
   </body>
 </html>
