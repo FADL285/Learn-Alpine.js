@@ -9,6 +9,21 @@
       [x-cloak] {
         display: none;
       }
+
+      button {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 0.25rem;
+        background-color: #3490dc;
+        color: #fff;
+        cursor: pointer;
+        margin: 0.5rem;
+      }
+
+      button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
     </style>
     <script
       src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
@@ -23,13 +38,18 @@
       <h3>Counter</h3>
       <button @click="counter++">+</button>
       <span x-text="counter"></span>
-      <button @click="counter--">-</button>
+      <button
+        @click="counter<=0 ? counter=0 : counter--"
+        x-bind:disabled="counter<=0"
+      >
+        -
+      </button>
     </div>
 
     <div class="model" x-data="{show: false}">
       <h3>Model</h3>
       <button @click="show = !show">Toggle</button>
-      <div x-show="show" x-cloak>
+      <div x-show="show" x-transition x-cloak x-effect="console.log(show)">
         <h4>Model is toggled</h4>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit,
@@ -38,6 +58,11 @@
           laudantium maiores doloremque distinctio ipsam!
         </p>
       </div>
+    </div>
+
+    <div x-data="{ label: 'Hello' }" x-effect="console.log(label)">
+      <h3>x-effect -> Watcher for value</h3>
+      <button @click="label += ' World!'">Change Message</button>
     </div>
   </body>
 </html>
