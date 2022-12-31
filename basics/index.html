@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alpine JS - Learn Basics</title>
+
+    <style>
+      [x-cloak] {
+        display: none;
+      }
+
+      body {
+        font-family: sans-serif;
+        text-align: center;
+      }
+    </style>
+
+    <script
+      src="https://unpkg.com/alpinejs@3.10.5/dist/cdn.min.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <h1>Alpine JS Basics</h1>
+    <!-- x-data, x-text, x-html -->
+    <div x-data="{ name: 'Mohamed Fadl', message: 'Hello <b>World</b>' }">
+      <h2>
+        <strong>x-text</strong>, <strong>x-data</strong>,
+        <strong>x-html</strong>
+      </h2>
+      <p x-text="name"></p>
+      <p x-html="message"></p>
+    </div>
+
+    <div
+      x-data
+      x-text="await (await fetch('https://jsonplaceholder.typicode.com/todos/1')).text()"
+    ></div>
+  </body>
+</html>
