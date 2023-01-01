@@ -109,6 +109,26 @@
     }"
     ></div>
 
+    <!-- Scoping -->
+    <div x-data="{
+      name: 'Mohamed Fadl',
+      age: 23,
+      gender: 'Male'
+    }">
+      <div x-data="{
+        name: 'Aboul-Fadl',
+        age: 22
+      }">
+        <div x-data="{
+          name: 'Fadl'
+        }">
+          <p x-text="name"></p>
+          <p x-text="age"></p>
+          <p x-text="gender"></p>
+        </div>
+      </div>
+    </div>
+
     <script src="./app.js"></script>
   </body>
 </html>
