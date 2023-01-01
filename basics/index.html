@@ -268,6 +268,70 @@
       </button>
     </div>
 
+    <!-- x-model -->
+    <div x-data="{ name: 'Mohamed Fadl' }">
+      <input
+        class="px-2 py-1 border-black border-2"
+        type="text"
+        x-model.debounce="name"
+      />
+      <p x-text="name"></p>
+    </div>
+
+    <!-- ! Challenge ! -->
+    <!-- 
+      Challenge: Create a button and 3 inputs.
+      1st input for text. Whatever you write inside the input that should become
+      the text of the button.
+      2nd input for background color. Whatever you type color inside the input and
+      that will become button background color
+      3rd input for button id. Whatever you type inside that will become button id
+    -->
+    <div
+      x-data="{buttonText: 'Input Value', buttonColor: 'blue', buttonId: ''}"
+    >
+      <input
+        class="px-2 py-1 border-black border-2"
+        type="text"
+        x-model="buttonText"
+      />
+      <input
+        class="px-2 py-1 border-black border-2"
+        type="text"
+        x-model="buttonColor"
+      />
+      <input
+        class="px-2 py-1 border-black border-2"
+        type="text"
+        x-model="buttonId"
+      />
+      <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1.5 px-4 my-2 rounded"
+        :class="`bg-${buttonColor}-500`"
+        :id="buttonId"
+      >
+        <span x-text="buttonText"></span>
+      </button>
+    </div>
+
+    <!-- x-effect -->
+    <div x-data="{ label: 'Hello' }" x-effect="console.log(label)">
+      <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1.5 px-4 my-2 rounded"
+        @click="label += ' World!'"
+      >
+        Change Message
+      </button>
+    </div>
+
+    <!-- x-ignore -->
+    <div x-data="{name: 'Fadl'}">
+      <div x-ignore>
+        <p x-text="name">This will not change</p>
+      </div>
+    </div>
+    
+
     <script src="./app.js"></script>
   </body>
 </html>
