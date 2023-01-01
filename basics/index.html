@@ -24,7 +24,7 @@
     ></script>
   </head>
   <body>
-    <h1>Alpine JS Basics</h1>
+    <h1 class="text-5xl">Alpine JS Basics</h1>
     <!-- x-data, x-text, x-html -->
     <div x-data="{ name: 'Mohamed Fadl', message: 'Hello <b>World</b>' }">
       <h2>
@@ -141,7 +141,11 @@
     }"
     >
       <p x-text="fullName"></p>
-      <input class="px-2 py-1 border" type="text" x-model="fullName" />
+      <input
+        class="px-2 py-1 border-black border-2"
+        type="text"
+        x-model="fullName"
+      />
     </div>
 
     <!-- x-show & x-transition -->
@@ -225,6 +229,43 @@
           :class="`bg-${color}-600`"
         ></div>
       </template>
+    </div>
+
+    <!-- Events: x-on: -->
+    <div x-data @notify="alert('custom event fired 🚀')">
+      <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1.5 px-4 my-2 rounded"
+        @click="alert($event.target.getAttribute('message'))"
+        message="Hello World"
+      >
+        Say Hi
+      </button>
+      <br />
+      <input
+        class="px-2 py-1 border-black border-2"
+        type="text"
+        @keyup.enter="alert('Submitted!')"
+      />
+      <br />
+      <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1.5 px-4 my-2 rounded"
+        @click.once="console.log('I will only log once')"
+      >
+        Click Event will execute once
+      </button>
+      <br />
+      <input
+        class="px-2 py-1 border-black border-2"
+        type="text"
+        @input.debounce.500ms="console.log($event.target.value)"
+      />
+      <br />
+      <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1.5 px-4 my-2 rounded"
+        @click="$dispatch('notify')"
+      >
+        Dispatch Event
+      </button>
     </div>
 
     <script src="./app.js"></script>
