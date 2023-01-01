@@ -346,6 +346,22 @@
       </button>
     </div>
 
+    <!-- x-teleport -->
+    <div x-data="{ open: false }">
+      <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1.5 px-4 my-2 rounded"
+        @click="open = ! open"
+      >
+        Toggle Modal
+      </button>
+
+      <template x-teleport="body">
+        <div x-show="open">Modal contents...</div>
+      </template>
+    </div>
+
+    <div>Some other content placed AFTER the modal markup.</div>
+
     <script src="./app.js"></script>
   </body>
 </html>
