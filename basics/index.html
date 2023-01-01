@@ -8,7 +8,7 @@
 
     <style>
       [x-cloak] {
-        display: none;
+        display: none !important;
       }
 
       body {
@@ -330,7 +330,21 @@
         <p x-text="name">This will not change</p>
       </div>
     </div>
-    
+
+    <!-- x-ref -->
+    <div x-data>
+      <input
+        class="px-2 py-1 border-black border-2 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50 focus:border-transparent"
+        type="text"
+        x-ref="input"
+      />
+      <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1.5 px-4 my-2 rounded"
+        @click="$refs.input.focus()"
+      >
+        Focus Input
+      </button>
+    </div>
 
     <script src="./app.js"></script>
   </body>
