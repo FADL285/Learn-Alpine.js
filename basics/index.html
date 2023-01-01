@@ -391,6 +391,18 @@
     </div>
 
     <!-- $watch -->
+    <div
+      x-data="{ open: false }"
+      x-init="$watch('open', (value, oldValue) => console.log('New Value: ' + value, 'Old Value: ' + oldValue))"
+    >
+      <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1.5 px-4 my-2 rounded"
+        @click="open = ! open"
+        :class="open && 'bg-red-500 hover:bg-red-700'"
+      >
+        Toggle Open
+      </button>
+    </div>
     <!-- $dispatch -->
     <!-- $nextTick -->
     <!-- $root -->
