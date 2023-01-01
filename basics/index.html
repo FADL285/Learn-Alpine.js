@@ -110,23 +110,45 @@
     ></div>
 
     <!-- Scoping -->
-    <div x-data="{
+    <div
+      x-data="{
       name: 'Mohamed Fadl',
       age: 23,
       gender: 'Male'
-    }">
-      <div x-data="{
+    }"
+    >
+      <div
+        x-data="{
         name: 'Aboul-Fadl',
         age: 22
-      }">
-        <div x-data="{
+      }"
+      >
+        <div
+          x-data="{
           name: 'Fadl'
-        }">
+        }"
+        >
           <p x-text="name"></p>
           <p x-text="age"></p>
           <p x-text="gender"></p>
         </div>
       </div>
+    </div>
+
+    <!-- Getters & Setters -->
+    <div
+      x-data="{
+      name: 'Mohamed Fadl',
+      get fullName() {
+        return this.name.toUpperCase();
+      },
+      set fullName(value) {
+        this.name = value;
+      }
+    }"
+    >
+      <p x-text="fullName"></p>
+      <input type="text" x-model="fullName" />
     </div>
 
     <script src="./app.js"></script>
