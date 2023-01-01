@@ -193,7 +193,10 @@
     <!-- x-for -->
     <div x-data>
       <ul>
-        <template x-for="item in ['Loop 1', 'Loop 2', 'Loop 3', 'Loop 4']" :key="item">
+        <template
+          x-for="item in ['Loop 1', 'Loop 2', 'Loop 3', 'Loop 4']"
+          :key="item"
+        >
           <li x-text="item"></li>
         </template>
       </ul>
@@ -208,6 +211,20 @@
       >
         Toggle x-bind:
       </button>
+    </div>
+
+    <!-- Challenge -->
+    <div
+      class="flex justify-center items-center gap-2"
+      x-data="{colors: ['red', 'green', 'blue']}"
+    >
+      <template x-for="color in colors">
+        <div
+          class="w-28 h-28 flex justify-center items-center"
+          x-text="color"
+          :class="`bg-${color}-600`"
+        ></div>
+      </template>
     </div>
 
     <script src="./app.js"></script>
