@@ -89,6 +89,25 @@
     </div>
 
     <!-- Data Coming From Stores -->
+    <div x-data>
+      <template x-for="item in $store.cart.items">
+        <p>
+          <span x-text="item.name"></span>
+          ✌️
+          <span x-text="item.price"></span>
+        </p>
+      </template>
+    </div>
+
+    <!-- x-init -->
+    <div x-init="console.log('Component Initialized using x-init')"></div>
+    <div
+      x-data="{
+      init() {
+        console.log('Component Initialized using x-data');
+      }
+    }"
+    ></div>
 
     <script src="./app.js"></script>
   </body>
