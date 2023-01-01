@@ -19,4 +19,12 @@ document.addEventListener("alpine:init", () => {
       this.items.push(item)
     }
   })
+
+  Alpine.store('darkMode', {
+    on: false,
+
+    toggle() {
+      this.on = ! this.on
+    }
+})
 })

@@ -362,6 +362,41 @@
 
     <div>Some other content placed AFTER the modal markup.</div>
 
+    <!-- ~~ Magic Properties ~~ -->
+    <!-- $el -->
+    <div x-data>
+      <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1.5 px-4 my-2 rounded"
+        @click="$el.innerHTML = 'Hello World!'"
+      >
+        Replace me with "Hello World!"
+      </button>
+    </div>
+    <!-- $refs -->
+    <!-- $store -->
+    <button
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1.5 px-4 my-2 rounded"
+      x-data
+      @click="$store.darkMode.toggle()"
+    >
+      Toggle Dark Mode
+    </button>
+    <div x-data :class="$store.darkMode.on && 'bg-black text-white'">
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
+        perspiciatis asperiores eius modi tenetur libero beatae assumenda, ullam
+        dolorum ea? Veritatis neque dolorem eius ad perferendis labore adipisci,
+        maxime soluta.
+      </p>
+    </div>
+
+    <!-- $watch -->
+    <!-- $dispatch -->
+    <!-- $nextTick -->
+    <!-- $root -->
+    <!-- $data -->
+    <!-- $id -->
+
     <script src="./app.js"></script>
   </body>
 </html>
