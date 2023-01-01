@@ -141,7 +141,7 @@
     }"
     >
       <p x-text="fullName"></p>
-      <input type="text" x-model="fullName" />
+      <input class="px-2 py-1 border" type="text" x-model="fullName" />
     </div>
 
     <!-- x-show & x-transition -->
@@ -150,7 +150,7 @@
         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1.5 px-4 my-2 rounded"
         @click="open = !open"
       >
-        Toggle
+        Toggle x-show
       </button>
       <div
         x-show="open"
@@ -168,6 +168,35 @@
           quibusdam!
         </p>
       </div>
+    </div>
+
+    <!-- x-if -->
+    <div x-data="{ open: false }">
+      <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1.5 px-4 my-2 rounded"
+        @click="open = !open"
+      >
+        Toggle x-if
+      </button>
+      <template x-if="open">
+        <div>
+          <h3>Some content</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos cumque
+            nostrum consequatur quasi distinctio saepe numquam nemo quod
+            repellat quibusdam!
+          </p>
+        </div>
+      </template>
+    </div>
+
+    <!-- x-for -->
+    <div x-data>
+      <ul>
+        <template x-for="item in ['Loop 1', 'Loop 2', 'Loop 3', 'Loop 4']" :key="item">
+          <li x-text="item"></li>
+        </template>
+      </ul>
     </div>
 
     <script src="./app.js"></script>
