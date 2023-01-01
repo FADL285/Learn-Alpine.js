@@ -405,9 +405,63 @@
     </div>
     <!-- $dispatch -->
     <!-- $nextTick -->
+    <div x-data="{ title: '$nextTick' }">
+      <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1.5 px-4 my-2 rounded"
+        @click="
+              title = 'Hello World!';
+              $nextTick(() => { console.log($el.innerText) });
+          "
+        x-text="title"
+      ></button>
+    </div>
     <!-- $root -->
+    <div x-data data-message="Hello World!">
+      <h3>$root Magic Property</h3>
+      <div>
+        <button
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1.5 px-4 my-2 rounded"
+          @click="alert($root.dataset.message)"
+        >
+          Say Hi
+        </button>
+      </div>
+    </div>
     <!-- $data -->
+    <div x-data="{ name: 'Fadl', age: 23, address: 'El-Mahalla' }">
+      <h3>$data Magic Property</h3>
+      <div>
+        <button
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1.5 px-4 my-2 rounded"
+          @click="console.log($data, $data.name, $data.age, $data.address)"
+        >
+          Log component data
+        </button>
+      </div>
+    </div>
     <!-- $id -->
+    <div x-data>
+      <div x-id="['text-input']">
+        <label :for="$id('text-input')">Name:</label>
+        <!-- "text-input-1" -->
+        <input
+          class="px-2 py-0.5 border-black border-2"
+          type="text"
+          :id="$id('text-input')"
+        />
+        <!-- "text-input-1" -->
+      </div>
+      <div x-id="['text-input']" class="mt-2">
+        <label :for="$id('text-input')">Email:</label>
+        <!-- "text-input-2" -->
+        <input
+          class="px-2 py-0.5 border-black border-2"
+          type="text"
+          :id="$id('text-input')"
+        />
+        <!-- "text-input-2" -->
+      </div>
+    </div>
 
     <script src="./app.js"></script>
   </body>
