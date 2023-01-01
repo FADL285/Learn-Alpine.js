@@ -199,6 +199,17 @@
       </ul>
     </div>
 
+    <!-- x-bind: -->
+    <div x-data="{ open: false }">
+      <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1.5 px-4 my-2 rounded"
+        x-bind:class="{ 'bg-red-500 hover:bg-red-700': open }"
+        @click="open = !open"
+      >
+        Toggle x-bind:
+      </button>
+    </div>
+
     <script src="./app.js"></script>
   </body>
 </html>
