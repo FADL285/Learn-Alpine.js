@@ -23,7 +23,7 @@
 
     <!-- Dropdown -->
     <div class="dropdown" x-data="{open: false}">
-      <h3 class="text-2xl mb-2">Dropdown</h3>
+      <h3 class="text-2xl my-2">Dropdown</h3>
 
       <button
         class="bg-blue-500 hover:bg-opacity-90 text-white font-bold py-2 px-6 rounded shadow flex items-center gap-1"
@@ -48,8 +48,8 @@
       <ul
         x-show="open"
         transition
-        @click.away="open = false"
-        class="bg-white w-40 rounded shadow-md p-1 flex flex-col mt-1"
+        @click.outside="open = false"
+        class="absolute bg-white w-40 rounded shadow-md p-1 flex flex-col mt-1"
       >
         <li>
           <a
@@ -178,6 +178,57 @@
     </div>
 
     <!-- Modal -->
+    <div x-data="{open: false}">
+      <h3 class="text-2xl my-2">Modal</h3>
+
+      <button
+        class="bg-blue-500 hover:bg-opacity-90 text-white font-bold py-2 px-6 rounded shadow"
+        @click="open = !open"
+        @click="open = true"
+      >
+        Toggle Modal
+      </button>
+
+      <template x-teleport="body">
+        <!-- Backdrop -->
+        <div
+          x-show="open"
+          class="flex items-center justify-center fixed inset-0 bg-black bg-opacity-25"
+        >
+          <!-- Dialog -->
+          <div
+            @click.outside="open=false"
+            x-transition:enter="duration-300 ease-out"
+            x-transition:enter-start="opacity-0 scale-95"
+            x-transition:enter-end="opacity-100 scale-100"
+            x-transition:leave="duration-200 ease-in"
+            x-transition:leave-start="opacity-100 scale-100"
+            x-transition:leave-end="opacity-0 scale-95"
+            class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
+          >
+            <h3 class="text-lg font-medium leading-6 text-gray-900">
+              Payment Successful
+            </h3>
+            <div class="mt-2">
+              <p class="text-sm text-gray-500">
+                Your payment has been successfully submitted. We’ve sent you an
+                email with all of the details of your order.
+              </p>
+            </div>
+
+            <div class="mt-4">
+              <button
+                type="button"
+                class="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                @click="open = false"
+              >
+                Got it, thanks!
+              </button>
+            </div>
+          </div>
+        </div>
+      </template>
+    </div>
 
     <!-- Tabs -->
 
