@@ -19,218 +19,276 @@
     ></script>
   </head>
   <body class="bg-gray-100 container mx-auto px-2">
-    <h1 class="text-5xl my-4">Alpine.js Components</h1>
+    <h1 class="text-5xl my-4 text-center">Alpine.js Components</h1>
 
-    <!-- Dropdown -->
-    <div class="dropdown" x-data="{open: false}">
-      <h3 class="text-2xl my-2">Dropdown</h3>
+    <div class="flex items-center justify-center py-8">
+      <!-- Dropdown -->
+      <div class="dropdown" x-data="{open: false}">
+        <h3 class="text-2xl my-2 text-center">Dropdown</h3>
 
-      <button
-        class="bg-blue-500 hover:bg-opacity-90 text-white font-bold py-2 px-6 rounded shadow flex items-center gap-1"
-        @click="open = !open"
-      >
-        Dropdown
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-          class="w-5 h-5 transition-all"
-          :class="open && 'rotate-90'"
+        <button
+          class="bg-blue-500 hover:bg-opacity-90 text-white font-bold py-2 px-6 rounded shadow flex items-center gap-1"
+          @click="open = !open"
         >
-          <path
-            fill-rule="evenodd"
-            d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-            clip-rule="evenodd"
-          />
-        </svg>
-      </button>
-
-      <ul
-        x-show="open"
-        transition
-        @click.outside="open = false"
-        class="absolute bg-white w-40 rounded shadow-md p-1 flex flex-col mt-1"
-      >
-        <li>
-          <a
-            class="flex items-center gap-2 py-1 px-4 rounded-sm hover:bg-gray-200"
-            href="#"
+          Dropdown
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="w-5 h-5 transition-all"
+            :class="open && 'rotate-90'"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-4 h-4"
+            <path
+              fill-rule="evenodd"
+              d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+
+        <ul
+          x-show="open"
+          transition
+          @click.outside="open = false"
+          class="absolute bg-white w-40 rounded shadow-md p-1 flex flex-col mt-1"
+        >
+          <li>
+            <a
+              class="flex items-center gap-2 py-1 px-4 rounded-sm hover:bg-gray-200"
+              href="#"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"
-              />
-            </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-4 h-4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"
+                />
+              </svg>
 
-            Edit
-          </a>
-        </li>
-        <li>
-          <a
-            class="flex items-center gap-2 py-1 px-4 rounded-sm hover:bg-gray-200"
-            href="#"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-4 h-4"
+              Edit
+            </a>
+          </li>
+          <li>
+            <a
+              class="flex items-center gap-2 py-1 px-4 rounded-sm hover:bg-gray-200"
+              href="#"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"
-              />
-            </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-4 h-4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"
+                />
+              </svg>
 
-            Duplicate
-          </a>
-        </li>
+              Duplicate
+            </a>
+          </li>
 
-        <!-- Divider -->
-        <li class="divider border-t-[1px] border-gray-100"></li>
+          <!-- Divider -->
+          <li class="divider border-t-[1px] border-gray-100"></li>
 
-        <li class="divide-y divide-gray-100">
-          <a
-            class="flex items-center gap-2 py-1 px-4 rounded-sm hover:bg-gray-200"
-            href="#"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-4 h-4"
+          <li class="divide-y divide-gray-100">
+            <a
+              class="flex items-center gap-2 py-1 px-4 rounded-sm hover:bg-gray-200"
+              href="#"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"
-              />
-            </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-4 h-4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"
+                />
+              </svg>
 
-            Archive
-          </a>
-        </li>
-        <li>
-          <a
-            class="flex items-center gap-2 py-1 px-4 rounded-sm hover:bg-gray-200"
-            href="#"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-4 h-4"
+              Archive
+            </a>
+          </li>
+          <li>
+            <a
+              class="flex items-center gap-2 py-1 px-4 rounded-sm hover:bg-gray-200"
+              href="#"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-              />
-            </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-4 h-4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+                />
+              </svg>
 
-            Move
-          </a>
-        </li>
+              Move
+            </a>
+          </li>
 
-        <!-- Divider -->
-        <li class="divider border-t-[1px] border-gray-100"></li>
+          <!-- Divider -->
+          <li class="divider border-t-[1px] border-gray-100"></li>
 
-        <li class="divide-y divide-gray-100">
-          <a
-            class="flex items-center gap-2 py-1 px-4 rounded-sm hover:bg-gray-200"
-            href="#"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-4 h-4"
+          <li class="divide-y divide-gray-100">
+            <a
+              class="flex items-center gap-2 py-1 px-4 rounded-sm hover:bg-gray-200"
+              href="#"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
-              />
-            </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-4 h-4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+                />
+              </svg>
 
-            Delete
-          </a>
-        </li>
-      </ul>
+              Delete
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
 
-    <!-- Modal -->
-    <div x-data="{open: false}">
-      <h3 class="text-2xl my-2">Modal</h3>
+    <div class="flex items-center justify-center py-8">
+      <!-- Modal -->
+      <div x-data="{open: false}">
+        <h3 class="text-2xl my-2 text-center">Modal</h3>
 
-      <button
-        class="bg-blue-500 hover:bg-opacity-90 text-white font-bold py-2 px-6 rounded shadow"
-        @click="open = !open"
-        @click="open = true"
-      >
-        Toggle Modal
-      </button>
-
-      <template x-teleport="body">
-        <!-- Backdrop -->
-        <div
-          x-show="open"
-          class="flex items-center justify-center fixed inset-0 bg-black bg-opacity-25"
+        <button
+          class="bg-blue-500 hover:bg-opacity-90 text-white font-bold py-2 px-6 rounded shadow"
+          @click="open = !open"
+          @click="open = true"
         >
-          <!-- Dialog -->
-          <div
-            @click.outside="open=false"
-            x-transition:enter="duration-300 ease-out"
-            x-transition:enter-start="opacity-0 scale-95"
-            x-transition:enter-end="opacity-100 scale-100"
-            x-transition:leave="duration-200 ease-in"
-            x-transition:leave-start="opacity-100 scale-100"
-            x-transition:leave-end="opacity-0 scale-95"
-            class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
-          >
-            <h3 class="text-lg font-medium leading-6 text-gray-900">
-              Payment Successful
-            </h3>
-            <div class="mt-2">
-              <p class="text-sm text-gray-500">
-                Your payment has been successfully submitted. We’ve sent you an
-                email with all of the details of your order.
-              </p>
-            </div>
+          Toggle Modal
+        </button>
 
-            <div class="mt-4">
-              <button
-                type="button"
-                class="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                @click="open = false"
-              >
-                Got it, thanks!
-              </button>
+        <template x-teleport="body">
+          <!-- Backdrop -->
+          <div
+            x-show="open"
+            class="flex items-center justify-center fixed inset-0 bg-black bg-opacity-25"
+          >
+            <!-- Dialog -->
+            <div
+              @click.outside="open=false"
+              x-transition:enter="duration-300 ease-out"
+              x-transition:enter-start="opacity-0 scale-95"
+              x-transition:enter-end="opacity-100 scale-100"
+              x-transition:leave="duration-200 ease-in"
+              x-transition:leave-start="opacity-100 scale-100"
+              x-transition:leave-end="opacity-0 scale-95"
+              class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
+            >
+              <h3 class="text-lg font-medium leading-6 text-gray-900">
+                Payment Successful
+              </h3>
+              <div class="mt-2">
+                <p class="text-sm text-gray-500">
+                  Your payment has been successfully submitted. We’ve sent you
+                  an email with all of the details of your order.
+                </p>
+              </div>
+
+              <div class="mt-4">
+                <button
+                  type="button"
+                  class="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                  @click="open = false"
+                >
+                  Got it, thanks!
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      </template>
+        </template>
+      </div>
     </div>
 
     <!-- Tabs -->
+    <div id="tab-group" class="flex items-center justify-center py-8">
+      <div x-data="tabsCategories" class="w-full max-w-md px-2 sm:px-0">
+        <h3 class="text-2xl my-2 text-center">Tabs</h3>
+
+        <div id="tab-list" class="flex space-x-1 rounded-xl bg-blue-600/90 p-1">
+          <template x-for="category in Object.keys(categories)" :key="category">
+            <button
+              x-text="category"
+              class="w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-blue-700 ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
+              :class="activeCategory === category ? 'bg-white shadow': 'text-blue-50 hover:bg-white/[0.12] hover:text-white'"
+              @click="setActiveCategory(category)"
+            ></button>
+          </template>
+        </div>
+
+        <div id="tab-panels" class="mt-2">
+          <template
+            x-for="(posts, idx) in Object.values(categories)"
+            :key="idx"
+          >
+            <div
+              x-show="activeCategory === Object.keys(categories)[idx]"
+              class="tab-panel rounded-xl bg-white p-3 ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
+            >
+              <ul>
+                <template x-for="post in posts" :key="post.id">
+                  <li class="relative rounded-md p-3 hover:bg-gray-100">
+                    <h3
+                      class="text-sm font-medium leading-5"
+                      x-text="post.title"
+                    ></h3>
+
+                    <ul
+                      class="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500"
+                    >
+                      <li x-text="post.date"></li>
+                      <li>&middot;</li>
+                      <li x-text="`${post.commentCount} comments`"></li>
+                      <li>&middot;</li>
+                      <li x-text="`${post.shareCount} shares`"></li>
+                    </ul>
+
+                    <a
+                      href="#"
+                      class="absolute inset-0 rounded-md ring-blue-400 focus:z-10 focus:outline-none focus:ring-2"
+                    />
+                  </li>
+                </template>
+              </ul>
+            </div>
+          </template>
+        </div>
+      </div>
+    </div>
 
     <!-- Carousel -->
 
