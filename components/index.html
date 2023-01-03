@@ -290,7 +290,41 @@
       </div>
     </div>
 
-    <!-- Carousel -->
+    <div class="flex items-center justify-center py-8">
+      <!-- Carousel -->
+      <div
+        x-data="{
+          images: ['c2.jpg', 'c3.jpg', 'c4.jpg', 'c5.jpg'],
+          activeImage: null,
+          init() {
+            this.activeImage = this.images[0]
+          },
+        }"
+      >
+        <h3 class="text-2xl my-2 text-center">Carousel</h3>
+
+        <div class="wrapper">
+          <figure class="rounded shadow-lg overflow-hidden">
+            <img
+              :src="`img/${activeImage}`"
+              alt="Car Image"
+              class="aspect-video object-cover"
+            />
+          </figure>
+          <div class="images flex justify-center items-center gap-2 mt-4">
+            <template x-for="image in images" :key="image">
+              <img
+                :src="`img/${image}`"
+                alt="Car Image"
+                @click="activeImage = image"
+                class="w-20 h-20 object-cover rounded shadow-lg cursor-pointer box-border	"
+                :class="activeImage === image ? 'border-4 border-blue-500/40' : ''"
+              />
+            </template>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Accordion -->
 
